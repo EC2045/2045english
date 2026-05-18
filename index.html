@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern English — Grammar Reference</title>
+<style>
+@font-face {
+  font-family: '2045alphabet';
+  src: url('https://ec2045.github.io/2045font/2045alphabet.otf') format('opentype');
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f5f3ee;
+  --bg2: #eceae3;
+  --ink: #1a1814;
+  --ink2: #4a4740;
+  --ink3: #7a7770;
+  --accent: #2a3f6e;
+  --accent2: #c8401a;
+  --rule: #c8c4bc;
+  --code-bg: #e8e4dd;
+  --font-display: '2045alphabet', 'Noto Sans JP', serif;
+  --font-body: 'Georgia', 'Times New Roman', serif;
+  --font-mono: 'Courier New', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+header {
+  border-bottom: 2px solid var(--ink);
+  padding: 3rem 0 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 50%, var(--accent) 100%);
+}
+
+.header-year {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  color: var(--ink3);
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: normal;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.header-sub {
+  font-size: 0.9rem;
+  color: var(--ink3);
+  margin-top: 0.75rem;
+  letter-spacing: 0.15em;
+  font-style: italic;
+}
+
+nav {
+  background: var(--ink);
+  color: #fff;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  max-width: 860px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+nav ul li a {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  font-family: var(--font-display);
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+
+nav ul li a:hover { color: #fff; }
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+section:last-child { border-bottom: none; }
+
+.section-num {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--accent2);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: normal;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: normal;
+  color: var(--accent);
+  margin: 1.5rem 0 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+p { margin-bottom: 1rem; color: var(--ink2); }
+
+.rule-box {
+  background: var(--bg2);
+  border-left: 3px solid var(--accent);
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  font-size: 0.95rem;
+}
+
+.rule-box strong {
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.example {
+  background: var(--code-bg);
+  border: 1px solid var(--rule);
+  padding: 0.9rem 1.1rem;
+  margin: 0.75rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.example em {
+  font-style: normal;
+  color: var(--accent2);
+  font-weight: bold;
+}
+
+.example-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--ink3);
+  display: block;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-display);
+  font-style: normal;
+}
+
+.example-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 0.75rem 0;
+}
+
+@media (max-width: 560px) {
+  .example-pair { grid-template-columns: 1fr; }
+}
+
+.example-bad {
+  background: #f5e8e4;
+  border: 1px solid #e8c4b8;
+}
+
+.example-good {
+  background: #e4edf5;
+  border: 1px solid #b8c8e8;
+}
+
+.example-bad .example-label { color: var(--accent2); }
+.example-good .example-label { color: var(--accent); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem;
+  font-size: 0.9rem;
+}
+
+th {
+  background: var(--ink);
+  color: #fff;
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+  font-family: var(--font-display);
+  font-weight: normal;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+td {
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink2);
+}
+
+tr:nth-child(even) td { background: var(--bg2); }
+
+code {
+  font-family: var(--font-mono);
+  background: var(--code-bg);
+  padding: 0.1em 0.4em;
+  font-size: 0.88em;
+  border: 1px solid var(--rule);
+  color: var(--accent2);
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  padding: 0.2em 0.6em;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 0.4em;
+}
+
+.tag-abolished { background: #f5e8e4; color: var(--accent2); border: 1px solid #e8c4b8; }
+.tag-retained  { background: #e4edf5; color: var(--accent);  border: 1px solid #b8c8e8; }
+.tag-new       { background: #e4f5e8; color: #2a6e3f;       border: 1px solid #b8e8c4; }
+
+.chapter-intro {
+  font-size: 1.05rem;
+  color: var(--ink3);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px dashed var(--rule);
+  padding-bottom: 1rem;
+}
+
+footer {
+  background: var(--ink);
+  color: #888;
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.8rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.1em;
+}
+
+footer span { color: #fff; }
+
+.toc {
+  background: var(--bg2);
+  border: 1px solid var(--rule);
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.toc-title {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--ink3);
+  margin-bottom: 1rem;
+}
+
+.toc ol {
+  padding-left: 1.2rem;
+  color: var(--ink2);
+  font-size: 0.9rem;
+}
+
+.toc li { margin-bottom: 0.3rem; }
+
+.toc a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.toc a:hover { text-decoration: underline; }
+
+.summary-table {
+  border: 2px solid var(--ink);
+}
+
+.summary-table th {
+  background: var(--accent);
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="header-year">東暦 2045 — LINGUISTIC REFERENCE</div>
+    <h1>Modern English</h1>
+    <div class="header-sub">A Grammar of the Common Tongue · First Edition</div>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#word-order">Word Order</a></li>
+    <li><a href="#verbs">Verbs</a></li>
+    <li><a href="#be">Be-Verbs</a></li>
+    <li><a href="#auxiliaries">Auxiliaries</a></li>
+    <li><a href="#nouns">Nouns</a></li>
+    <li><a href="#questions">Questions</a></li>
+    <li><a href="#special">Special Words</a></li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+  <section id="overview">
+    <span class="section-num">§ 0</span>
+    <h2>Overview</h2>
+    <p class="chapter-intro">Modern English is the dominant spoken and written language of Earth in the Eastern Calendar era. It evolved from 20th–21st century English through deliberate simplification, removing irregular forms that served no communicative purpose.</p>
+
+    <div class="toc">
+      <div class="toc-title">CONTENTS</div>
+      <ol>
+        <li><a href="#word-order">Word Order — OSV as default, SVO for emphasis</a></li>
+        <li><a href="#verbs">Regular Verbs — conjugation rules</a></li>
+        <li><a href="#be">Be-Verbs — the four permitted forms</a></li>
+        <li><a href="#auxiliaries">Auxiliary Verbs — retained irregulars</a></li>
+        <li><a href="#nouns">Nouns &amp; Pronouns — capitalization and plurals</a></li>
+        <li><a href="#questions">Questions — the ¿ ? enclosure</a></li>
+        <li><a href="#special">Special Words — does, did</a></li>
+        <li><a href="#summary">Full Reference Table</a></li>
+      </ol>
+    </div>
+
+    <div class="rule-box">
+      <strong>CORE PHILOSOPHY</strong>
+      Regularity above tradition. If a rule has exceptions that serve no meaning, the exceptions are removed. What remains is simpler, learnable, and unambiguous.
+    </div>
+  </section>
+
+  <section id="word-order">
+    <span class="section-num">§ 1</span>
+    <h2>Word Order</h2>
+    <p class="chapter-intro">Modern English uses Object-Subject-Verb as its default sentence structure. This is the most common word order among the world's languages, and represents a natural evolution from older patterns.</p>
+
+    <h3>Default Order — OSV</h3>
+    <div class="rule-box">
+      <strong>RULE</strong>
+      Object → Subject → Verb
+    </div>
+
+    <div class="example">
+      <span class="example-label">EXAMPLE</span>
+      <em>Doctor I does.</em>
+      <br>→ "I want to become a Doctor."
+    </div>
+
+    <div class="example">
+      <span class="example-label">EXAMPLE</span>
+      <em>Cat he have.</em>
+      <br>→ "He has a cat."
+    </div>
+
+    <div class="example">
+      <span class="example-label">EXAMPLE</span>
+      <em>Claude you is.</em>
+      <br>→ "You are Claude."
+    </div>
+
+    <h3>Inverted Order — SVO <span class="tag tag-new">EMPHASIS</span></h3>
+    <p>When a speaker wishes to emphasize the subject's agency, or in poetic and formal registers, Subject-Verb-Object order is used instead.</p>
+
+    <div class="rule-box">
+      <strong>RULE</strong>
+      Inverted (emphatic): Subject → Verb → Object
+    </div>
+
+    <div class="example-pair">
+      <div class="example example-good">
+        <span class="example-label">OSV — NEUTRAL</span>
+        <em>Doctor I does.</em>
+      </div>
+      <div class="example example-good">
+        <span class="example-label">SVO — EMPHATIC</span>
+        <em>I does Doctor.</em>
+      </div>
+    </div>
+  </section>
+
+  <section id="verbs">
+    <span class="section-num">§ 2</span>
+    <h2>Regular Verbs</h2>
+    <p class="chapter-intro">All general verbs follow a single regular conjugation pattern. No exceptions. No third-person singular <em>-s</em>. No irregular past forms outside the auxiliary class.</p>
+
+    <h3>Conjugation Pattern</h3>
+
+    <table>
+      <tr><th>Form</th><th>Suffix</th><th>Example (come)</th><th>Example (walk)</th></tr>
+      <tr><td>Present</td><td>—</td><td>come</td><td>walk</td></tr>
+      <tr><td>Past</td><td>+ed</td><td>comed</td><td>walked</td></tr>
+      <tr><td>Past Participle</td><td>+ten</td><td>cometen</td><td>walkten</td></tr>
+    </table>
+
+    <div class="rule-box">
+      <strong>ABOLISHED</strong>
+      Third-person singular <em>-s</em> is removed entirely. "She go", "He run", "It work" — all the same as any other person.
+    </div>
+
+    <div class="example-pair">
+      <div class="example example-bad">
+        <span class="example-label">OLD ENGLISH — ABOLISHED</span>
+        She <em>comes</em>. He <em>runs</em>.
+      </div>
+      <div class="example example-good">
+        <span class="example-label">MODERN ENGLISH — CORRECT</span>
+        She <em>come</em>. He <em>run</em>.
+      </div>
+    </div>
+
+    <h3>Perfect Aspect</h3>
+    <p>Perfect constructions use <code>+ten</code> participle with <code>have</code>, placed at end of clause (following OSV order).</p>
+
+    <div class="example">
+      <span class="example-label">PERFECT</span>
+      <em>Comen I have.</em> → "I have come."
+    </div>
+
+    <div class="example">
+      <span class="example-label">PERFECT</span>
+      <em>That Book readten she have.</em> → "She has read that Book."
+    </div>
+
+    <h3>Note on <em>have</em> as a regular verb</h3>
+    <p>As a general verb meaning "to possess", <em>have</em> is fully regular:</p>
+
+    <table>
+      <tr><th>Form</th><th>Word</th></tr>
+      <tr><td>Present</td><td>have</td></tr>
+      <tr><td>Past</td><td>haved</td></tr>
+      <tr><td>Past Participle</td><td>haveten</td></tr>
+    </table>
+
+    <div class="example">
+      <span class="example-label">POSSESSION — PRESENT</span>
+      <em>Cat he have.</em> → "He has a cat."
+    </div>
+
+    <div class="example">
+      <span class="example-label">POSSESSION — PAST</span>
+      <em>Cat he haved.</em> → "He had a cat."
+    </div>
+  </section>
+
+  <section id="be">
+    <span class="section-num">§ 3</span>
+    <h2>Be-Verbs</h2>
+    <p class="chapter-intro">The be-verb is retained in limited form. Only four conjugations exist. The full paradigm of am/are/is/was/were/been is reduced to four essential forms.</p>
+
+    <div class="rule-box">
+      <strong>THE FOUR PERMITTED FORMS</strong>
+      be · is · was · been
+    </div>
+
+    <table>
+      <tr><th>Form</th><th>Word</th><th>Usage</th></tr>
+      <tr><td>Infinitive / Imperative</td><td><strong>be</strong></td><td>Command form only; also base form</td></tr>
+      <tr><td>Present (all persons)</td><td><strong>is</strong></td><td>I is, you is, they is — no distinction</td></tr>
+      <tr><td>Past (all persons)</td><td><strong>was</strong></td><td>She was, we was — no distinction</td></tr>
+      <tr><td>Past Participle</td><td><strong>been</strong></td><td>Used in perfect constructions</td></tr>
+    </table>
+
+    <div class="rule-box">
+      <strong>ABOLISHED</strong>
+      <em>am</em>, <em>are</em>, <em>were</em> — removed. <em>is</em> and <em>was</em> serve all persons.
+    </div>
+
+    <div class="example-pair">
+      <div class="example example-bad">
+        <span class="example-label">OLD — ABOLISHED</span>
+        I <em>am</em>. You <em>are</em>. They <em>were</em>.
+      </div>
+      <div class="example example-good">
+        <span class="example-label">MODERN — CORRECT</span>
+        I <em>is</em>. You <em>is</em>. They <em>was</em>.
+      </div>
+    </div>
+
+    <h3>Imperative (be)</h3>
+
+    <div class="example">
+      <span class="example-label">COMMAND</span>
+      <em>Claude be.</em> → "Be Claude." / "Become Claude."
+    </div>
+
+    <div class="example">
+      <span class="example-label">COMMAND</span>
+      <em>Happy be.</em> → "Be happy."
+    </div>
+
+    <h3>Statements</h3>
+
+    <div class="example">
+      <span class="example-label">PRESENT</span>
+      <em>Claude you is.</em> → "You are Claude."
+    </div>
+
+    <div class="example">
+      <span class="example-label">PAST</span>
+      <em>Happy they was.</em> → "They were happy."
+    </div>
+  </section>
+
+  <section id="auxiliaries">
+    <span class="section-num">§ 4</span>
+    <h2>Auxiliary Verbs</h2>
+    <p class="chapter-intro">Auxiliary verbs are exempt from the regularity requirement. Their irregular forms are retained because they carry distinct modal meanings that cannot be derived from a base form alone.</p>
+
+    <div class="rule-box">
+      <strong>RULE</strong>
+      Auxiliaries may be irregular. Their traditional forms are preserved.
+    </div>
+
+    <table>
+      <tr><th>Auxiliary</th><th>Forms Retained</th><th>Notes</th></tr>
+      <tr><td>will</td><td>will, would</td><td>Future / conditional</td></tr>
+      <tr><td>can</td><td>can, could</td><td>Ability / possibility</td></tr>
+      <tr><td>shall</td><td>shall, should</td><td>Obligation / suggestion</td></tr>
+      <tr><td>may</td><td>may, might</td><td>Permission / uncertainty</td></tr>
+      <tr><td>have (aux)</td><td>have, had</td><td>Perfect aspect only — distinct from verb <em>have</em></td></tr>
+      <tr><td>be (aux)</td><td>be, is, was, been</td><td>See §3</td></tr>
+    </table>
+
+    <h3>have (auxiliary) vs have (verb)</h3>
+    <p>These are two separate words that happen to share a spelling in present tense. Context and conjugation distinguish them:</p>
+
+    <div class="example-pair">
+      <div class="example">
+        <span class="example-label">AUXILIARY had — perfect</span>
+        <em>There gone I had.</em><br>→ "I had gone there."
+      </div>
+      <div class="example">
+        <span class="example-label">VERB haved — possession</span>
+        <em>Car she haved.</em><br>→ "She had a car."
+      </div>
+    </div>
+  </section>
+
+  <section id="nouns">
+    <span class="section-num">§ 5</span>
+    <h2>Nouns &amp; Pronouns</h2>
+
+    <h3>Capitalization</h3>
+    <div class="rule-box">
+      <strong>RULE</strong>
+      All nouns begin with a capital letter. Pronouns do not.
+    </div>
+
+    <div class="example">
+      <span class="example-label">EXAMPLE</span>
+      <em>Water he drink.</em> — <em>Water</em> is a Noun (capital). <em>he</em> is a pronoun (lowercase).
+    </div>
+
+    <div class="example">
+      <span class="example-label">EXAMPLE</span>
+      <em>Dream they have.</em>
+    </div>
+
+    <h3>Plural Forms</h3>
+    <p>All plurals are regular. Historical irregular plurals are abolished.</p>
+
+    <div class="rule-box">
+      <strong>RULE</strong>
+      Add <em>-s</em> normally. Add <em>-es</em> when the word ends in a sound that would make pronunciation difficult.
+    </div>
+
+    <table>
+      <tr><th>Old Form <span class="tag tag-abolished">ABOLISHED</span></th><th>Modern Form <span class="tag tag-new">CORRECT</span></th></tr>
+      <tr><td>children</td><td>childs</td></tr>
+      <tr><td>geese</td><td>gooses</td></tr>
+      <tr><td>mice</td><td>mouses</td></tr>
+      <tr><td>teeth</td><td>tooths</td></tr>
+      <tr><td>feet</td><td>foots</td></tr>
+      <tr><td>men / women</td><td>mans / womans</td></tr>
+    </table>
+  </section>
+
+  <section id="questions">
+    <span class="section-num">§ 6</span>
+    <h2>Questions</h2>
+    <p class="chapter-intro">Interrogative sentences are marked with enclosing punctuation. No word order change is required to form a question.</p>
+
+    <div class="rule-box">
+      <strong>RULE</strong>
+      Enclose the sentence in ¿ … ? to mark it as a question. Word order does not change.
+    </div>
+
+    <div class="example-pair">
+      <div class="example">
+        <span class="example-label">STATEMENT</span>
+        <em>Doctor you does.</em><br>→ "You want to be a Doctor."
+      </div>
+      <div class="example">
+        <span class="example-label">QUESTION</span>
+        <em>¿Doctor you does?</em><br>→ "Do you want to be a Doctor?"
+      </div>
+    </div>
+
+    <div class="example">
+      <span class="example-label">QUESTION</span>
+      <em>¿Happy you is?</em> → "Are you happy?"
+    </div>
+
+    <div class="example">
+      <span class="example-label">QUESTION</span>
+      <em>¿Water she drink?</em> → "Does she drink water?"
+    </div>
+  </section>
+
+  <section id="special">
+    <span class="section-num">§ 7</span>
+    <h2>Special Words</h2>
+
+    <h3>does — desire / want <span class="tag tag-new">NEW MEANING</span></h3>
+    <p>The word <em>does</em> has been repurposed. It is no longer a conjugation of <em>do</em>. Instead, it carries the meaning of <em>want</em> or <em>wish to become</em>, absorbing those words entirely.</p>
+
+    <div class="rule-box">
+      <strong>RULE</strong>
+      <em>does</em> = "want" / "wish to be/become". The words <em>want</em> and <em>wish</em> (in this sense) are no longer used.
+    </div>
+
+    <div class="example">
+      <span class="example-label">EXAMPLE</span>
+      <em>Doctor I does.</em> → "I want to be a Doctor."
+    </div>
+
+    <div class="example">
+      <span class="example-label">EXAMPLE</span>
+      <em>Peace they does.</em> → "They want peace."
+    </div>
+
+    <div class="example">
+      <span class="example-label">QUESTION</span>
+      <em>¿Freedom you does?</em> → "Do you want freedom?"
+    </div>
+
+    <h3>did — past of do <span class="tag tag-retained">RETAINED</span></h3>
+    <p>The word <em>did</em> is retained as the past tense of the verb <em>do</em> (meaning "to perform an action"). This is kept for phonetic reasons — <em>doed</em> is considered difficult to pronounce.</p>
+
+    <div class="example">
+      <span class="example-label">EXAMPLE</span>
+      <em>That she did.</em> → "She did that."
+    </div>
+  </section>
+
+  <section id="summary">
+    <span class="section-num">§ 8</span>
+    <h2>Full Reference Table</h2>
+
+    <table class="summary-table">
+      <tr><th>Feature</th><th>Rule</th><th>Status</th></tr>
+      <tr><td>Default word order</td><td>OSV (Object–Subject–Verb)</td><td><span class="tag tag-new">CORE</span></td></tr>
+      <tr><td>Emphatic word order</td><td>SVO (inverted)</td><td><span class="tag tag-new">EMPHASIS</span></td></tr>
+      <tr><td>Third-person singular -s</td><td>Abolished. All persons same form.</td><td><span class="tag tag-abolished">REMOVED</span></td></tr>
+      <tr><td>Regular verb past</td><td>+ed (comed, walkted)</td><td><span class="tag tag-new">REGULAR</span></td></tr>
+      <tr><td>Regular verb participle</td><td>+ten (cometen, walkten)</td><td><span class="tag tag-new">REGULAR</span></td></tr>
+      <tr><td>Perfect construction</td><td>[Object] [Participle] [Subject] have.</td><td><span class="tag tag-new">REGULAR</span></td></tr>
+      <tr><td>Be-verb forms</td><td>be / is / was / been only</td><td><span class="tag tag-retained">LIMITED</span></td></tr>
+      <tr><td>am, are, were</td><td>Abolished</td><td><span class="tag tag-abolished">REMOVED</span></td></tr>
+      <tr><td>Auxiliary verbs</td><td>Irregular forms permitted</td><td><span class="tag tag-retained">EXEMPT</span></td></tr>
+      <tr><td>have (possession)</td><td>Regular: have / haved / haveten</td><td><span class="tag tag-new">REGULAR</span></td></tr>
+      <tr><td>had (auxiliary)</td><td>Irregular, as auxiliary only</td><td><span class="tag tag-retained">EXEMPT</span></td></tr>
+      <tr><td>does</td><td>Means "want / wish to become"</td><td><span class="tag tag-new">REPURPOSED</span></td></tr>
+      <tr><td>did</td><td>Past tense of do (retained for phonetics)</td><td><span class="tag tag-retained">RETAINED</span></td></tr>
+      <tr><td>Noun capitalization</td><td>All nouns: initial capital letter</td><td><span class="tag tag-new">CORE</span></td></tr>
+      <tr><td>Pronoun capitalization</td><td>All pronouns: lowercase</td><td><span class="tag tag-new">CORE</span></td></tr>
+      <tr><td>Plural nouns</td><td>+s or +es, fully regular</td><td><span class="tag tag-new">REGULAR</span></td></tr>
+      <tr><td>Irregular plurals</td><td>Abolished (childs, mouses…)</td><td><span class="tag tag-abolished">REMOVED</span></td></tr>
+      <tr><td>Question marking</td><td>¿ sentence ?</td><td><span class="tag tag-new">CORE</span></td></tr>
+    </table>
+  </section>
+
+</div>
+
+<footer>
+  <div>MODERN ENGLISH — GRAMMAR REFERENCE &nbsp;·&nbsp; <span>東暦 2045</span></div>
+  <div style="margin-top:0.5rem; font-size:0.7rem;">ec2045 · ONVA World Archive</div>
+</footer>
+
+</body>
+</html>
